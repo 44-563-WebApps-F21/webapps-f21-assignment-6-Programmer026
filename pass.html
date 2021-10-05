@@ -18,9 +18,15 @@
             </div>
         </form>
 
+        <div class="container">
+            <img src="rabbit.png" alt="Image of rabbit" width="200" height="200" onclick="newImage()" id="firstImage">
+        </div>
+
         <script>
             var correct = 0
             var wrong = 0
+
+            usingImage = 1
 
             function processPhrase() {
                 secretPhrase = document.getElementById("passText").value
@@ -35,7 +41,25 @@
                     out.innerHTML = "Correct: " + correct + "\nWrong: " + wrong
                     alert("Wrong")
                 }
-                
+            }
+
+            function newImage() {
+                fImg = document.getElementById("firstImage")
+                switch(usingImage) {
+                    case 1:
+                        fImg.src = "snail2.png";
+                        usingImage += 1;
+                        break;
+                    case 2:
+                        fImg.src = "wessel.png";
+                        usingImage += 1;
+                        break;
+                    case 3:
+                        fImg.src = "rabbit.png";
+                        usingImage = 1
+                        break;
+
+                }
             }
 
         </script>
