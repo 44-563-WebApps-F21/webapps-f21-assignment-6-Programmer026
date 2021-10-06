@@ -24,16 +24,38 @@
 
 <p id="carResult">This text will be replaced </p>
 
+<form>
+    <label for="property">Enter a property </label>
+    <input type ="text" id="property" name="property" value="color"> <br>
+
+    <label for="val">Enter a value </label>
+    <input type ="text" id="val" name="val"> <br>
+
+    <input type="button" onclick="updateCar()" value="Update the car">
+</form>
+
+
 <script> 
 my_car = {}
 function orderCar(){
     console.log("Getting form values")
+    my_car = {}
     electric = document.getElementById("electric").checked
     ac = document.getElementById("ac").checked
     gps = document.getElementById("gps").checked
     my_car = {"electric":electric, "ac":ac, "gps":gps}
     out = document.getElementById("carResult")
-    out.innerHTML = "Electric: " + my_car.electric + " AC: " + my_car.ac + " GPS: " + my_car.gps;
+    out.innerHTML = JSON.stringify(my_car)
+}
+
+function updateCar() {
+    property = document.getElementById("property").value
+    val = document.getElementById("val").value
+    my_car[property] = val
+
+    out = document.getElementById("carResult")
+    out.innerHTML = JSON.stringify(my_car)
+    
 }
 </script>
 
